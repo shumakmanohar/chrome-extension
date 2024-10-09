@@ -3,6 +3,7 @@
 	"name": "Simple Chrome Extention",
 	"description": "Chrome Extention Task",
 	"version": "1.0",
+	"permissions": ["storage", "alarms"],
 	"action": {
 		"default_popup": "index.html",
 		"default_icon": "icon.png"
