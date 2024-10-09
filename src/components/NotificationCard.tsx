@@ -2,7 +2,7 @@ import BellIcon from "./BellIcon";
 
 type Props = {};
 
-const NotificationCard = (props: Props) => {
+const NotificationCard = (_props: Props) => {
 	return (
 		<div>
 			<section className="flex items-center justify-between px-2 bg-gray-200/40 py-2.5">
