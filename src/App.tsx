@@ -4,8 +4,9 @@ import NotificationCard from "./components/NotificationCard";
 import Skeleton from "./components/Skeleton";
 import ErrorHandler from "./components/Error";
 import NotFound from "./components/NotFound";
+import { updateBadge } from "./util/extension";
 
-const API_URL =
+export const API_URL =
 	"https://670624e9031fd46a83121bb9.mockapi.io/api/notifications/message";
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
 				chrome.storage.local.get("readMessages", (result) => {
 					setReadMessages(result.readMessages || []);
 				});
+
+				//Set Badge
+				updateBadge();
 			} catch (err: any) {
 				console.error("Error fetching notification:", err);
 				setError(err.message);
@@ -57,9 +61,11 @@ function App() {
 				</div>
 			);
 		}
+
 		if (error) {
 			return <ErrorHandler msg={error} />;
 		}
+
 		if (!data.length) return <NotFound />;
 
 		if (data) {
@@ -77,10 +83,6 @@ function App() {
 					</div>
 				</div>
 			);
-		}
-
-		if (error) {
-			return <h2>something went wrong</h2>;
 		}
 	};
 	return (

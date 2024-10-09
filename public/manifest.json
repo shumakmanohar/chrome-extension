@@ -4,6 +4,10 @@
 	"description": "Chrome Extention Task",
 	"version": "1.0",
 	"permissions": ["storage", "alarms"],
+	"background": {
+		"service_worker": "background.js",
+		"type": "module"
+	},
 	"action": {
 		"default_popup": "index.html",
 		"default_icon": "icon.png"

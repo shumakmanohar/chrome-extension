@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AppNotification } from "../types";
 import BellIcon from "./BellIcon";
+import { updateBadge } from "../util/extension";
 
 type Props = AppNotification & {
 	readMessages: string[];
@@ -39,6 +40,9 @@ const NotificationCard = ({
 
 		//Update the State
 		setReadMessages(updatedReadMessages);
+
+		//Update the Badge
+		updateBadge();
 	};
 	return (
 		<section
