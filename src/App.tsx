@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { AppNotification } from "./types";
 import NotificationCard from "./components/NotificationCard";
+import Skeleton from "./components/Skeleton";
+import ErrorHandler from "./components/Error";
+import NotFound from "./components/NotFound";
 
 const API_URL =
 	"https://670624e9031fd46a83121bb9.mockapi.io/api/notifications/message";
@@ -42,27 +45,36 @@ function App() {
 		fetchNotifications();
 	}, []);
 
-	//Dynamic Render Data
 	const renderData = () => {
 		if (loading) {
-			return <h1>Loading</h1>;
+			return (
+				<div className="flex flex-col gap-4">
+					<Skeleton />
+					<Skeleton />
+					<Skeleton />
+					<Skeleton />
+					<Skeleton />
+				</div>
+			);
 		}
+		if (error) {
+			return <ErrorHandler msg={error} />;
+		}
+		if (!data.length) return <NotFound />;
 
 		if (data) {
 			return (
 				<div className="flex flex-col ">
-					{data.length > 0 ? (
-						data.map((notification) => (
+					<div className="flex flex-col ">
+						{data.map((notification) => (
 							<NotificationCard
 								key={notification.id}
 								{...notification}
 								readMessages={readMessages}
 								setReadMessages={setReadMessages}
 							/>
-						))
-					) : (
-						<p>No new Notification</p>
-					)}
+						))}
+					</div>
 				</div>
 			);
 		}
