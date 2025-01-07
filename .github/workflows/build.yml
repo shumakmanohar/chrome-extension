@@ -4,8 +4,6 @@ on:
   push:
     tags:
       - v*.*.*
-    branches:
-      - main
 
 jobs:
   build:
@@ -30,7 +28,7 @@ jobs:
         run: zip -r dist.zip dist
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v
         with:
           name: dist-zip
           path: dist.zip
