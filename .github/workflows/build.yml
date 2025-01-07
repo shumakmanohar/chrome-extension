@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - v*.*.*
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,7 +27,7 @@ jobs:
         run: zip -r dist.zip dist
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v
+        uses: actions/upload-artifact@v3
         with:
           name: dist-zip
           path: dist.zip
