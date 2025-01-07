@@ -38,7 +38,7 @@ jobs:
 
       - name: Upload step
         run: chrome-webstore-upload upload \\
-          --source chrome-extension-${{ github.event.pull_request.head.sha }}.zip \\
+          --source dist.zip \\
           --extension-id ${{ hdaofegceehpceddcddehegbdcanbfcf }} \\
           --client-id  ${{ secrets.CLIENT_ID }} \\
           --client-secret  ${{ secrets.CLIENT_SECRET }} \\
