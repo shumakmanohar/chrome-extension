@@ -37,9 +37,4 @@ jobs:
         run: npm install -g chrome-webstore-upload-cli
 
       - name: Upload step
-        run: chrome-webstore-upload upload \\
-          --source dist.zip \\
-          --extension-id  hdaofegceehpceddcddehegbdcanbfcf \\
-          --client-id  ${{ secrets.CLIENT_ID }} \\
-          --client-secret  ${{ secrets.CLIENT_SECRET }} \\
-          --refresh-token  ${{ secrets.REFRESH_TOKEN }}
+        run: chrome-webstore-upload upload --source dist.zip
