@@ -1,6 +1,6 @@
 # React + TypeScript + Vite Chrom Extension
 
-[![Watch the video]](./video.mp4)
+[![Watch the video]](https://github.com/shumakmanohar/chrome-extension/blob/main/video.mp4)
 
 ## Implemented Features
 
